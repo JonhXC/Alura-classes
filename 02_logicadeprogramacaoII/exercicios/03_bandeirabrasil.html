@@ -1,0 +1,39 @@
+<canvas width="800" height="600"></canvas>
+
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+
+    //screen
+    pincel.fillStyle = "lightgrey";
+    pincel.fillRect(0, 0, 800, 600);
+
+    //bandeira nacional brasileira
+    // -rect
+    pincel.fillStyle = 'darkgreen';
+    pincel.fillRect(50, 100, 600, 400);
+
+    // -two triangles
+    pincel.fillStyle = "yellow";
+    pincel.beginPath();
+    pincel.moveTo(350, 130);
+    pincel.lineTo(90, 300);
+    pincel.lineTo(610, 300);
+    pincel.fill();
+
+    pincel.beginPath();
+    pincel.moveTo(350, 470);
+    pincel.lineTo(90, 300);
+    pincel.lineTo(610, 300);
+    pincel.fill();
+    
+    //circle
+    pincel.fillStyle = 'darkblue';
+    pincel.beginPath();
+    pincel.arc(350, 300, 105, 0, 2 * 3.14);
+    pincel.fill();
+
+
+</script>

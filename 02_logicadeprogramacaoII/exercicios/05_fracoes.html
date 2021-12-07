@@ -1,0 +1,32 @@
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+    
+
+    function desenhafracao(x, y,tamanho, preencher, cor) {
+
+        for(var m = 0; m < preencher; m++) {
+            pincel.fillStyle = cor;
+            pincel.fillRect(x + (m * 30), y, 30, 30);
+            pincel.fill();
+        }
+        for(var i = 0; i < tamanho; i++) {
+            pincel.strokeStyle = 'black';
+            pincel.strokeRect(x + (i * 30), y, 30, 30);
+            pincel.fill();
+        }
+        
+
+    };
+
+    desenhafracao(200, 200, 3, 2, 'red');
+    desenhafracao(200, 130, 3, 2, 'lightblue' );
+
+</script>

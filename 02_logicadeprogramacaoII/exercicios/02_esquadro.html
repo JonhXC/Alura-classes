@@ -1,0 +1,29 @@
+<canvas width="650" height="450"></canvas>
+
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+
+    //screen
+    pincel.fillStyle = 'lightgrey';
+    pincel.fillRect(0, 0, 650, 450);
+
+    //large triangle
+    pincel.fillStyle = 'black';
+    pincel.beginPath();
+    pincel.moveTo(50, 50);
+    pincel.lineTo(50, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+    //smaller triangle
+    pincel.fillStyle = 'lightgrey';
+    pincel.beginPath();
+    pincel.moveTo(90, 150);
+    pincel.lineTo(90, 360);
+    pincel.lineTo(300, 360);
+    pincel.fill();
+
+</script>

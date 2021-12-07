@@ -1,0 +1,39 @@
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function limpaTela() {
+        pincel.clearRect(0, 0, 600, 400);
+    }
+
+    function desenhaBola(x, y) {
+        pincel.fillStyle = 'red';
+        pincel.beginPath();
+        pincel.arc(x, y, tamRadius, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+    var tamRadius = 20;
+    var pulsando = 1;
+
+    function pulsar() {
+        limpaTela();
+        desenhaBola(100, 200, tamRadius);
+        tamRadius = tamRadius + pulsando;
+
+        if(tamRadius > 30) {
+            pulsando = -1;
+        }
+        else if(tamRadius < 20) {
+            pulsando = 1;
+        }
+    }
+    setInterval(pulsar, 20);
+
+</script>

@@ -1,0 +1,37 @@
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    //desenhando flor - centro
+    pincel.fillStyle = 'red';
+    pincel.beginPath();
+    pincel.arc(300, 200, 20, 0, 2 * 3.14);
+    pincel.fill();
+    //esquerda
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.arc(260, 200, 20, 0, 2 * 3.14);
+    pincel.fill();
+    //cima
+    pincel.fillStyle = 'lightyellow';
+    pincel.beginPath();
+    pincel.arc(300, 160, 20, 0, 2 * 3.14);
+    pincel.fill();
+    //direita
+    pincel.fillStyle = 'yellow';
+    pincel.beginPath();
+    pincel.arc(340, 200, 20, 0, 2 * 3.14);
+    pincel.fill();
+    //baixo
+    pincel.fillStyle = 'lightyellow';
+    pincel.beginPath();
+    pincel.arc(300, 240, 20, 0, 2 * 3.14);
+    pincel.fill();
+</script>

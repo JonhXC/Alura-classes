@@ -1,0 +1,89 @@
+<!--
+    - Atencao!  O codigo foi feito para teste.
+    - Funcoes:
+        (shift e botao direito) para aumentar o tamanho do pincel.
+        (alt e botao direito) para diminuir o tamanho do pincel.
+-->
+
+<canvas width="600" height="400"></canvas>
+
+Escolha uma cor:
+<input type="color">
+
+<script>
+    
+
+    var tela = document.querySelector("canvas");
+    var pincel = tela.getContext("2d");
+
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    /*var cores = ['black', 'blue', 'red'];
+    var corAtual = 0; */
+    var raio = 5;
+    var desenha = false;
+
+    
+    function raioTamanho(evento) {
+        var shift = evento.shiftKey;
+        var teclaAlt = evento.altKey;
+
+        if(shift) {
+            raio = raio + 5;
+        }
+        if(raio > 25) {
+            raio = 25;
+        }
+        if(raio < 5) {
+            raio = 5;
+        }
+        if(teclaAlt == true) {
+            raio = raio - 5;
+        }
+    };
+
+    tela.onclick = raioTamanho;
+    
+    function desenhaCirculo(evento) {
+        var inputColor = document.querySelector("input");
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+
+        
+
+        if(desenha) {
+            pincel.fillStyle = inputColor.value;
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14);
+            pincel.fill(); 
+        }
+    };
+
+    tela.onmousemove = desenhaCirculo;
+
+    function habilitaDesenhar() {
+        desenha = true;
+    };
+    
+    function desabilitaDesenha() {
+        desenha = false;
+    };
+    
+    tela.onmousedown = habilitaDesenhar;
+    tela.onmouseup = desabilitaDesenha;
+
+    /*
+    function mudaCor() {
+        corAtual++;
+        if(corAtual >= cores.length) {
+            corAtual = 0;
+        }
+        return false;
+    };
+
+    tela.oncontextmenu = mudaCor;
+    */
+
+</script>
