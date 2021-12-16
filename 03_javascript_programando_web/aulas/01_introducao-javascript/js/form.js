@@ -1,19 +1,18 @@
 
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
-
-
 botaoAdicionar.addEventListener("click", function(event){
-
     event.preventDefault();
 
-    //Adicionando paciente
-
     var form = document.querySelector("#form-adiciona");
-
     var paciente = obtemPacienteDoFormulario(form);
 
-    criaTr(paciente);
-    
+    if (!validaPaciente(paciente)) {
+        console.log("Paciente inválido");
+        return;
+    }
+
+    var pacienteTr = montaTr(paciente);
+    form.reset();
     
 });
 
@@ -29,7 +28,7 @@ function obtemPacienteDoFormulario(form){
     return paciente;
 }
 
-function criaTr(paciente) {
+function montaTr(paciente) {
     var pacienteTr = document.createElement("tr");
 
     var nomeTd = document.createElement("td");
@@ -50,8 +49,9 @@ function criaTr(paciente) {
     pacienteTr.appendChild(gorduraTd);
     pacienteTr.appendChild(imcTd);
 
+    //adicionando paciente na tabela
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
-
+    
 }
